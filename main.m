@@ -3,7 +3,7 @@
 //  SGLayerUpdater
 //
 //  Created by Derek Smith on 8/15/10.
-//  Copyright CrashCorp 2010. All rights reserved.
+//  Copyright SimpleGeo 2010. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
