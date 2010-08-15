@@ -277,7 +277,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Resources/SGLayerUpdater_Prefix.pch;
 				INFOPLIST_FILE = "Resources/SGLayerUpdater-Info.plist";
-				LIBRARY_SEARCH_PATHS = "SGiPhoneSDK/$(PLATFORM_NAME)";
+				LIBRARY_SEARCH_PATHS = "SGiPhoneSDK/SGClient/$(PLATFORM_NAME)";
 				OTHER_LDFLAGS = (
 					"-all_load",
 					"-ObjC",
@@ -296,7 +296,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Resources/SGLayerUpdater_Prefix.pch;
 				INFOPLIST_FILE = "Resources/SGLayerUpdater-Info.plist";
-				LIBRARY_SEARCH_PATHS = "SGiPhoneSDK/$(PLATFORM_NAME)";
+				LIBRARY_SEARCH_PATHS = "SGiPhoneSDK/SGClient/$(PLATFORM_NAME)";
 				OTHER_LDFLAGS = (
 					"-all_load",
 					"-ObjC",
