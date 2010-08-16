@@ -16,6 +16,9 @@
 		4AE4AAFB121895FD00EF9BC2 /* SGLayerUpdater-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4AE4AAF8121895FD00EF9BC2 /* SGLayerUpdater-Info.plist */; };
 		4AE4AB01121896EE00EF9BC2 /* Token.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4AE4AB00121896EE00EF9BC2 /* Token.plist */; };
 		4AE4AC7612189A4B00EF9BC2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AE4AC7512189A4B00EF9BC2 /* CoreLocation.framework */; };
+		4AE4ACB012189C9600EF9BC2 /* SGMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE4ACAF12189C9600EF9BC2 /* SGMainViewController.m */; };
+		4AE4ACBE12189F7100EF9BC2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AE4ACBD12189F7100EF9BC2 /* MapKit.framework */; };
+		4AE4AD021218A17B00EF9BC2 /* SGCreateRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE4AD011218A17B00EF9BC2 /* SGCreateRecordViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +61,19 @@
 		4AE4ABDD1218992700EF9BC2 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		4AE4ABDE1218992700EF9BC2 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		4AE4AC7512189A4B00EF9BC2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		4AE4ACAE12189C9600EF9BC2 /* SGMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGMainViewController.h; sourceTree = "<group>"; };
+		4AE4ACAF12189C9600EF9BC2 /* SGMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGMainViewController.m; sourceTree = "<group>"; };
+		4AE4ACBD12189F7100EF9BC2 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		4AE4AD001218A17B00EF9BC2 /* SGCreateRecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGCreateRecordViewController.h; sourceTree = "<group>"; };
+		4AE4AD011218A17B00EF9BC2 /* SGCreateRecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGCreateRecordViewController.m; sourceTree = "<group>"; };
+		4AE4AD841218B4EA00EF9BC2 /* SGDynamicPolylineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGDynamicPolylineView.h; sourceTree = "<group>"; };
+		4AE4AD851218B4EA00EF9BC2 /* SGLayerMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGLayerMapView.h; sourceTree = "<group>"; };
+		4AE4AD861218B4EA00EF9BC2 /* SGPointHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGPointHelper.h; sourceTree = "<group>"; };
+		4AE4AD871218B4EA00EF9BC2 /* SGRecordLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGRecordLine.h; sourceTree = "<group>"; };
+		4AE4AD891218B4EA00EF9BC2 /* libSGMapKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSGMapKit.a; sourceTree = "<group>"; };
+		4AE4AD8B1218B4EA00EF9BC2 /* libSGMapKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSGMapKit.a; sourceTree = "<group>"; };
+		4AE4AD8C1218B4EA00EF9BC2 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		4AE4AD8D1218B4EA00EF9BC2 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +85,7 @@
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */,
 				4AE4AC7612189A4B00EF9BC2 /* CoreLocation.framework in Frameworks */,
+				4AE4ACBE12189F7100EF9BC2 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +97,10 @@
 			children = (
 				1D3623240D0F684500981E51 /* SGLayerUpdaterAppDelegate.h */,
 				1D3623250D0F684500981E51 /* SGLayerUpdaterAppDelegate.m */,
+				4AE4ACAE12189C9600EF9BC2 /* SGMainViewController.h */,
+				4AE4ACAF12189C9600EF9BC2 /* SGMainViewController.m */,
+				4AE4AD001218A17B00EF9BC2 /* SGCreateRecordViewController.h */,
+				4AE4AD011218A17B00EF9BC2 /* SGCreateRecordViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -116,6 +137,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4AE4ACBD12189F7100EF9BC2 /* MapKit.framework */,
 				4AE4AC7512189A4B00EF9BC2 /* CoreLocation.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
@@ -138,6 +160,7 @@
 		4AE4AB101218992700EF9BC2 /* SGiPhoneSDK */ = {
 			isa = PBXGroup;
 			children = (
+				4AE4AD621218B4EA00EF9BC2 /* SGMapKit */,
 				4AE4AB111218992700EF9BC2 /* SGClient */,
 			);
 			path = SGiPhoneSDK;
@@ -197,6 +220,45 @@
 			isa = PBXGroup;
 			children = (
 				4AE4ABDC1218992700EF9BC2 /* libSGClient.a */,
+			);
+			path = iphonesimulator;
+			sourceTree = "<group>";
+		};
+		4AE4AD621218B4EA00EF9BC2 /* SGMapKit */ = {
+			isa = PBXGroup;
+			children = (
+				4AE4AD831218B4EA00EF9BC2 /* Headers */,
+				4AE4AD881218B4EA00EF9BC2 /* iphoneos */,
+				4AE4AD8A1218B4EA00EF9BC2 /* iphonesimulator */,
+				4AE4AD8C1218B4EA00EF9BC2 /* LICENSE */,
+				4AE4AD8D1218B4EA00EF9BC2 /* README */,
+			);
+			path = SGMapKit;
+			sourceTree = "<group>";
+		};
+		4AE4AD831218B4EA00EF9BC2 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				4AE4AD841218B4EA00EF9BC2 /* SGDynamicPolylineView.h */,
+				4AE4AD851218B4EA00EF9BC2 /* SGLayerMapView.h */,
+				4AE4AD861218B4EA00EF9BC2 /* SGPointHelper.h */,
+				4AE4AD871218B4EA00EF9BC2 /* SGRecordLine.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		4AE4AD881218B4EA00EF9BC2 /* iphoneos */ = {
+			isa = PBXGroup;
+			children = (
+				4AE4AD891218B4EA00EF9BC2 /* libSGMapKit.a */,
+			);
+			path = iphoneos;
+			sourceTree = "<group>";
+		};
+		4AE4AD8A1218B4EA00EF9BC2 /* iphonesimulator */ = {
+			isa = PBXGroup;
+			children = (
+				4AE4AD8B1218B4EA00EF9BC2 /* libSGMapKit.a */,
 			);
 			path = iphonesimulator;
 			sourceTree = "<group>";
@@ -261,6 +323,8 @@
 			files = (
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* SGLayerUpdaterAppDelegate.m in Sources */,
+				4AE4ACB012189C9600EF9BC2 /* SGMainViewController.m in Sources */,
+				4AE4AD021218A17B00EF9BC2 /* SGCreateRecordViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,12 +341,17 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Resources/SGLayerUpdater_Prefix.pch;
 				INFOPLIST_FILE = "Resources/SGLayerUpdater-Info.plist";
-				LIBRARY_SEARCH_PATHS = "SGiPhoneSDK/SGClient/$(PLATFORM_NAME)";
+				LIBRARY_SEARCH_PATHS = (
+					"SGiPhoneSDK/SGClient/$(PLATFORM_NAME)",
+					"\"$(SRCROOT)/SGiPhoneSDK/SGMapKit/$(PLATFORM_NAME)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-all_load",
 					"-ObjC",
 					"-l",
 					SGClient,
+					"-l",
+					SGMapKit,
 				);
 				PRODUCT_NAME = SGLayerUpdater;
 			};
@@ -296,12 +365,17 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Resources/SGLayerUpdater_Prefix.pch;
 				INFOPLIST_FILE = "Resources/SGLayerUpdater-Info.plist";
-				LIBRARY_SEARCH_PATHS = "SGiPhoneSDK/SGClient/$(PLATFORM_NAME)";
+				LIBRARY_SEARCH_PATHS = (
+					"SGiPhoneSDK/SGClient/$(PLATFORM_NAME)",
+					"\"$(SRCROOT)/SGiPhoneSDK/SGMapKit/$(PLATFORM_NAME)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-all_load",
 					"-ObjC",
 					"-l",
 					SGClient,
+					"-l",
+					SGMapKit,
 				);
 				PRODUCT_NAME = SGLayerUpdater;
 				VALIDATE_PRODUCT = YES;

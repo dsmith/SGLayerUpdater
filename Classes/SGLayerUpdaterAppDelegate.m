@@ -7,6 +7,7 @@
 //
 
 #import "SGLayerUpdaterAppDelegate.h"
+#import "SGMainViewController.h"
 
 #import "SGClient.h"
 
@@ -20,24 +21,28 @@
 
 - (BOOL) application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions
 {   
-    NSString* path = [mainBundle pathForResource:@"Token" ofType:@"plist"];
+    NSString* path = [[NSBundle mainBundle] pathForResource:@"Token" ofType:@"plist"];
     NSDictionary* token = [NSDictionary dictionaryWithContentsOfFile:path];
     
     NSString* key = [token objectForKey:@"key"];
     NSString* secret = [token objectForKey:@"secret"];
+    NSString* layer = [token objectForKey:@"layer"];
     
-    if([key isEqualToString:@"my-secret"] || [secret isEqualToString:@"my-secret"]) {
+    if([key isEqualToString:@"my-secret"] || [secret isEqualToString:@"my-secret"] || [layer isEqualToString:@"my-layer"]) {
         NSLog(@"ERROR!!! - Please change the credentials in Resources/Token.plist");
         exit(1);
     }   
     
-    SGOAuth* token = [[[SGOAuth alloc] initWithKey:key secret:secret] autorelease];
+    SGOAuth* oauthToken = [[SGOAuth alloc] initWithKey:key secret:secret];
     SGLocationService* locationService = [SGLocationService sharedLocationService];
-    locationService.HTTPAuthorizer = token;
+    locationService.HTTPAuthorizer = oauthToken;
 
     // We want to make sure that we are adding the proper credentials to the
     // location service before we make the window visible. We might end up using
     // the location service in some of the UIVIew initialization code.
+    SGMainViewController* mainViewController = [[SGMainViewController alloc] initWithLayer:layer];
+    UINavigationController* navigationController = [[UINavigationController alloc] initWithRootViewController:mainViewController];
+    [window addSubview:navigationController.view];
     [window makeKeyAndVisible];
 
 	return YES;

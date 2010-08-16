@@ -13,3 +13,6 @@
     #import <UIKit/UIKit.h>
     #import <CoreData/CoreData.h>
 #endif
+
+#import "SGClient.h"
+#import "SGLayerMapView.h"
