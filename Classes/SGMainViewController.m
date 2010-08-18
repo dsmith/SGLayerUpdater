@@ -34,10 +34,12 @@
 
 #import "SGMainViewController.h"
 
-@interface SGMainViewController (Private)
+@interface SGMainViewController (Private) <SGARViewControllerDataSource>
 
 - (BOOL) isRequestId:(NSString*)requestIdOne equalTo:(NSString*)requestIdTwo;
+
 - (void) initializeCreateRecordViewController;
+- (void) initializeARViewController;
 
 @end
 
@@ -78,6 +80,15 @@
     [cancelButton release];    
 }
 
+- (void) initializeARViewController
+{
+    arViewController = [[SGARViewController alloc] init];
+    arViewController.dataSource = self;
+    
+    arViewController.arView.enableGridLines = NO;
+    arViewController.arView.enableWalking = NO;
+}
+
 ////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark -
 #pragma mark UIViewController overrides 
@@ -104,7 +115,9 @@
                                                                                      action:@selector(showCreateRecordViewController:)];
 
     self.navigationItem.rightBarButtonItem = addRecordButton;
-    [addRecordButton release];    
+    [addRecordButton release];  
+    
+    [self initializeARViewController];
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -219,6 +232,29 @@
         }
     }
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark -
+#pragma mark SGARViewController data source methods 
+//////////////////////////////////////////////////////////////////////////////////////////////// 
+
+- (SGAnnotationView*) viewController:(SGARViewController*)viewController
+                   viewForAnnotation:(id<MKAnnotation>)annotation 
+                       atBucketIndex:(NSInteger)bucketIndex
+{
+    
+}
+
+- (NSArray*) viewController:(SGARViewController*)viewController annotationsForBucketAtIndex:(NSInteger)bucketIndex
+{
+    return 1;
+}
+
+- (NSInteger) viewControllerNumberOfBuckets:(SGARViewController*)viewController
+{
+    return 1;
+}
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark -

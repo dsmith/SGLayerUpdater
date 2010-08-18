@@ -52,6 +52,8 @@
     NSString* sendRequestId;
     
     NSString* layerName;
+    
+    SGARViewController* arViewController;
 }
 
 @end
