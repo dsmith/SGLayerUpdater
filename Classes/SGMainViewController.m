@@ -34,12 +34,12 @@
 
 #import "SGMainViewController.h"
 
-@interface SGMainViewController (Private) <SGARViewControllerDataSource>
+@interface SGMainViewController (Private) <SGARViewDataSource>
 
 - (BOOL) isRequestId:(NSString*)requestIdOne equalTo:(NSString*)requestIdTwo;
 
 - (void) initializeCreateRecordViewController;
-- (void) initializeARViewController;
+- (void) initializeARView;
 
 @end
 
@@ -78,15 +78,29 @@
     createRecordViewController.navigationItem.leftBarButtonItem = cancelButton;
     [sendButton release];
     [cancelButton release];    
+    
+    UIBarButtonItem* addRecordButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPageCurl
+                                                                                     target:self
+                                                                                     action:@selector(showCreateRecordViewController:)];
+    
+    self.navigationItem.rightBarButtonItem = addRecordButton;
+    [addRecordButton release];    
 }
 
-- (void) initializeARViewController
+- (void) initializeARView
 {
-    arViewController = [[SGARViewController alloc] init];
-    arViewController.dataSource = self;
+    arView = [[SGARView alloc] initWithFrame:self.view.bounds];
+    arView.dataSource = self;
     
-    arViewController.arView.enableGridLines = NO;
-    arViewController.arView.enableWalking = NO;
+    arView.enableGridLines = NO;
+    arView.enableWalking = NO;
+    
+    UIBarButtonItem* revealButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction
+                                                                                target:self
+                                                                                action:@selector(reveal:)];
+    revealButton.tag = 1;
+    self.navigationItem.leftBarButtonItem = revealButton;
+    [revealButton release];
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -98,7 +112,7 @@
 {
     [super loadView];
     
-    self.title = @"SGRecordUpdater";
+    self.title = @"Layer Updater";
         
     layerMapView = [[SGLayerMapView alloc] initWithFrame:self.view.bounds];
     [layerMapView addLayers:[NSArray arrayWithObject:[[SGLayer alloc] initWithLayerName:layerName]]];
@@ -109,15 +123,8 @@
     [self.view addSubview:layerMapView];
     [layerMapView startRetrieving];
     
-    [self initializeCreateRecordViewController];
-    UIBarButtonItem* addRecordButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
-                                                                                     target:self
-                                                                                     action:@selector(showCreateRecordViewController:)];
-
-    self.navigationItem.rightBarButtonItem = addRecordButton;
-    [addRecordButton release];  
-    
-    [self initializeARViewController];
+    [self initializeCreateRecordViewController];    
+    [self initializeARView];
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -145,6 +152,35 @@
 
         [createRecordNavigationViewController dismissModalViewControllerAnimated:YES];
     }
+}
+
+- (void) reveal:(id)button
+{
+    UIBarButtonItem* revealButton = (UIBarButtonItem*)button;
+    revealButton.enabled = NO;
+    if(revealButton.tag) { 
+        [layerMapView stopRetrieving];        
+        [UIView transitionWithView:self.view
+                          duration:1.3
+                           options:UIViewAnimationOptionTransitionCurlUp
+                        animations:^{ [self.view addSubview:arView]; } 
+                        completion:^(BOOL completed) { revealButton.enabled = YES; }
+         ];
+        [arView startAnimation];
+        
+    } else {
+        [arView stopAnimation];
+        [UIView transitionWithView:self.view
+                          duration:1.3
+                           options:UIViewAnimationOptionTransitionCurlDown
+                        animations:^{ [arView removeFromSuperview]; } 
+                        completion:^(BOOL completed) { revealButton.enabled = YES; }
+         ];
+        [layerMapView startRetrieving];
+    }
+    
+    [UIView commitAnimations];
+    revealButton.tag = !revealButton.tag;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -235,26 +271,18 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark -
-#pragma mark SGARViewController data source methods 
+#pragma mark SGARView data source methods 
 //////////////////////////////////////////////////////////////////////////////////////////////// 
 
-- (SGAnnotationView*) viewController:(SGARViewController*)viewController
-                   viewForAnnotation:(id<MKAnnotation>)annotation 
-                       atBucketIndex:(NSInteger)bucketIndex
+- (NSArray*) arView:(SGARView*)view annotationsAtLocation:(CLLocation*)location
 {
-    
+    return [NSArray arrayWithArray:layerMapView.annotations];
 }
 
-- (NSArray*) viewController:(SGARViewController*)viewController annotationsForBucketAtIndex:(NSInteger)bucketIndex
+- (SGAnnotationView*) arView:(SGARView*)view viewForAnnotation:(id<MKAnnotation>)annotation
 {
-    return 1;
+    return nil;
 }
-
-- (NSInteger) viewControllerNumberOfBuckets:(SGARViewController*)viewController
-{
-    return 1;
-}
-
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark -

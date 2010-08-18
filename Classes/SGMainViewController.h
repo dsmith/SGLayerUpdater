@@ -53,7 +53,7 @@
     
     NSString* layerName;
     
-    SGARViewController* arViewController;
+    SGARView* arView;
 }
 
 @end
