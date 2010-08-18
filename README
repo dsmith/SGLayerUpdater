@@ -1,0 +1,49 @@
+SGLayerUpdater v0.1.0
+
+================================================================================
+ABSTRACT:
+
+A simple demo application that uses the SimpleGeo iPhone SDK to add, delete and
+retrieve records.
+
+================================================================================
+BUILD REQUIREMENTS:
+
+iPhone SDK 4.0
+
+Frameworks
+- MapKit
+- CoreLocation
+- Foundation
+- UIKit
+- CoreGraphics
+
+================================================================================
+PACKAGING LIST:
+
+SGiPhoneSDK
+    SGMapKit
+    The static libraries and header files generated from http://github.com/simplegeo/SGMapKit
+
+    SGClient
+    The static libraries and header files gnereated from http://github.com/simplegeo/SGClient
+
+Classes
+    SGLayerUpdaterAppDelegate.h
+    Defines the application delegate that initializes the SGLocationService.
+
+    SGMainViewController
+    A view controller that presents a map that retrieves records from SimpleGeo.
+
+    SGCreateRecordViewController
+    A table view controller that allows a user to create a record that will be added to 
+    a layer in SimpleGeo.
+
+================================================================================
+CHANGES FROM PREVIOUS VERSIONS:
+Version 0.1.0
+- First version.
+
+================================================================================
+Copyright (C) 2010 SimpleGeo Inc. All rights reserved.
+
