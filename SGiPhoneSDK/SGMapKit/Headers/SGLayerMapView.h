@@ -162,4 +162,10 @@
 */
 - (void) removeLayer:(SGLayer*)layer;
 
+/*!
+* @method retrieveLayers
+* @abstract Creates a nearby request for the current viewport and registered layers.
+*/
+- (void) retrieveLayers;
+
 @end

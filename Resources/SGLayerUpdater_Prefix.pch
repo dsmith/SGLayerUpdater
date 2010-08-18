@@ -15,4 +15,4 @@
 #endif
 
 #import "SGClient.h"
-#import "SGLayerMapView.h"
+#import "SGMapKit.h"

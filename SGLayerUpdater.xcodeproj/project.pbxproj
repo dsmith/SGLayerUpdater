@@ -30,6 +30,7 @@
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4A9357271219A1D60068DD31 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		4AC4A696121B666600D1B3DA /* SGMapKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGMapKit.h; sourceTree = "<group>"; };
 		4AE4AAF3121895EE00EF9BC2 /* SGLayerUpdater.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SGLayerUpdater.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AE4AAF7121895FD00EF9BC2 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		4AE4AAF8121895FD00EF9BC2 /* SGLayerUpdater-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SGLayerUpdater-Info.plist"; sourceTree = "<group>"; };
@@ -242,6 +243,7 @@
 		4AE4AD831218B4EA00EF9BC2 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
+				4AC4A696121B666600D1B3DA /* SGMapKit.h */,
 				4AE4AD841218B4EA00EF9BC2 /* SGDynamicPolylineView.h */,
 				4AE4AD851218B4EA00EF9BC2 /* SGLayerMapView.h */,
 				4AE4AD861218B4EA00EF9BC2 /* SGPointHelper.h */,

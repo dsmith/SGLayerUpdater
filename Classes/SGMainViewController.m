@@ -37,28 +37,45 @@
 @interface SGMainViewController (Private)
 
 - (BOOL) isRequestId:(NSString*)requestIdOne equalTo:(NSString*)requestIdTwo;
-- (void) refresh:(id)button;
+- (void) initializeCreateRecordViewController;
 
 @end
 
 @implementation SGMainViewController
 
-- (id) initWithLayer:(NSString*)layerName
+- (id) initWithLayer:(NSString*)name
 {
-    if(self = [super init]) {        
-        createRecordViewController = [[SGCreateRecordViewController alloc] initWithStyle:UITableViewStyleGrouped];
-        createRecordNavigationViewController = [[UINavigationController alloc] initWithRootViewController:createRecordViewController];
+    if(self = [super init]) {
         locationService = [SGLocationService sharedLocationService];
         [locationService addDelegate:self];
         
-        layer = layerName;
+        layerName = [name retain];
         
         sendRequestId = nil;
         deleteRequestId = nil;
-        nearbyRequestId = nil;
     }
     
     return self;
+}
+
+- (void) initializeCreateRecordViewController
+{
+    createRecordViewController = [[SGCreateRecordViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    createRecordNavigationViewController = [[UINavigationController alloc] initWithRootViewController:createRecordViewController];
+
+    UIBarButtonItem* sendButton = [[UIBarButtonItem alloc] initWithTitle:@"Send"
+                                                                   style:UIBarButtonItemStyleBordered
+                                                                  target:self
+                                                                  action:@selector(updateRecord:)];
+    UIBarButtonItem* cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel"
+                                                                     style:UIBarButtonItemStyleBordered
+                                                                    target:self
+                                                                    action:@selector(hideCreateRecordViewController:)];
+    
+    createRecordViewController.navigationItem.rightBarButtonItem = sendButton;
+    createRecordViewController.navigationItem.leftBarButtonItem = cancelButton;
+    [sendButton release];
+    [cancelButton release];    
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -71,48 +88,22 @@
     [super loadView];
     
     self.title = @"SGRecordUpdater";
-    
-    UIBarButtonItem* sendButton = [[UIBarButtonItem alloc] initWithTitle:@"Send"
-                                                                   style:UIBarButtonItemStyleBordered
-                                                                  target:self
-                                                                  action:@selector(send:)];
-    UIBarButtonItem* cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel"
-                                                                     style:UIBarButtonItemStyleBordered
-                                                                    target:self
-                                                                    action:@selector(cancel:)];
-    
-    createRecordViewController.navigationItem.rightBarButtonItem = sendButton;
-    createRecordViewController.navigationItem.leftBarButtonItem = cancelButton;
-    [sendButton release];
-    [cancelButton release];
-    
+        
     layerMapView = [[SGLayerMapView alloc] initWithFrame:self.view.bounds];
-    [layerMapView addLayers:[NSArray arrayWithObject:[[SGLayer alloc] initWithLayerName:layer]]];
-    layerMapView.delegate = self;
+    [layerMapView addLayers:[NSArray arrayWithObject:[[SGLayer alloc] initWithLayerName:layerName]]];
+
     layerMapView.showsUserLocation = YES;
     layerMapView.addRetrievedRecordsToLayer = NO;
+    layerMapView.delegate = self;
 
-    // We want to update the map explicitlty
-    layerMapView.reloadTimeInterval = -1.0;
     [self.view addSubview:layerMapView];
     
+    [self initializeCreateRecordViewController];
     UIBarButtonItem* addRecordButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                                                                      target:self
-                                                                                     action:@selector(addRecord:)];
+                                                                                     action:@selector(showCreateRecordViewController:)];
 
-    refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
-                                                                                  target:self 
-                                                                                  action:@selector(refresh:)];
-    UIActivityIndicatorView* activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
-    [activityView startAnimating];
-    spinningButton = [[UIBarButtonItem alloc] initWithCustomView:activityView];
     self.navigationItem.rightBarButtonItem = addRecordButton;
-    
-    [self setToolbarItems:[NSArray arrayWithObject:refreshButton] animated:NO];
-    [self.navigationController setToolbarHidden:NO animated:NO];    
-    
-    [self refresh:refreshButton];
-    [refreshButton release];
     [addRecordButton release];    
 }
 
@@ -121,34 +112,25 @@
 #pragma mark UIButton actions 
 //////////////////////////////////////////////////////////////////////////////////////////////// 
 
-- (void) addRecord:(id)button
+- (void) showCreateRecordViewController:(id)button
 {
     [self.navigationController presentModalViewController:createRecordNavigationViewController animated:YES];
 }
 
-- (void) refresh:(id)button
-{
-    if(!nearbyRequestId) {
-        // Clear the map
-        [layerMapView removeAnnotations:[NSArray arrayWithArray:layerMapView.annotations]];
-        [layerMapView startRetrieving];
-        nearbyRequestId = @"request";
-        [self setToolbarItems:[NSArray arrayWithObject:spinningButton] animated:NO];
-    }    
-}
-
-- (void) cancel:(id)button
+- (void) hideCreateRecordViewController:(id)button
 {
     [createRecordNavigationViewController dismissModalViewControllerAnimated:YES];
 }
 
-- (void) send:(id)button
+- (void) updateRecord:(id)button
 {
     if(!sendRequestId) {
         SGRecord* newRecord = createRecordViewController.record;
-        newRecord.layer = layer;
+        newRecord.layer = layerName;
+
         sendRequestId = [locationService updateRecordAnnotation:newRecord];
-        [self cancel:button];
+
+        [createRecordNavigationViewController dismissModalViewControllerAnimated:YES];
     }
 }
 
@@ -159,21 +141,26 @@
 
 - (void) locationService:(SGLocationService*)service succeededForResponseId:(NSString*)requestId responseObject:(NSObject*)responseObject
 {
-    if([self isRequestId:requestId equalTo:deleteRequestId]) {
-        deleteRequestId = nil;
-    } else if([self isRequestId:requestId equalTo:sendRequestId]) {  
-        SGRecord* record = (SGRecord*)[SGGeoJSONEncoder recordForGeoJSONObject:(NSDictionary*)responseObject];
-        [layerMapView addAnnotation:record];
+    if([self isRequestId:requestId equalTo:sendRequestId]) {  
+        id<SGRecordAnnotation> recordAnnotation = [SGGeoJSONEncoder recordForGeoJSONObject:(NSDictionary*)responseObject];
+        [layerMapView addAnnotation:recordAnnotation];
         sendRequestId = nil;
-    } else {
-        [self setToolbarItems:[NSArray arrayWithObject:refreshButton] animated:NO];   
-        nearbyRequestId = nil;
+    } else if([self isRequestId:requestId equalTo:deleteRequestId]) {
+        deleteRequestId = nil;
     }
 }
 
 - (void) locationService:(SGLocationService*)service failedForResponseId:(NSString*)requestId error:(NSError*)error
 {
-    ;
+    if([self isRequestId:requestId equalTo:deleteRequestId] || [self isRequestId:requestId equalTo:sendRequestId]) {
+        UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"ERROR!!!"
+                                                            message:[error description]
+                                                           delegate:self
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+        [alertView show];
+        [alertView release];
+    }
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -225,8 +212,10 @@
             [noteAlertView show];
             [noteAlertView release];
         } else {
-            [layerMapView removeAnnotation:record];            
-            deleteRequestId = [locationService deleteRecordAnnotation:record];
+            if(!deleteRequestId) {
+                [layerMapView removeAnnotation:record];            
+                deleteRequestId = [locationService deleteRecordAnnotation:record];
+            }
         }
     }
 }
@@ -252,12 +241,8 @@
     
     [deleteRequestId release];
     [sendRequestId release];
-    [nearbyRequestId release];
     
-    [layer release];
-    
-    [refreshButton release];
-    [spinningButton release];
+    [layerName release];
     
     [super dealloc];
 }

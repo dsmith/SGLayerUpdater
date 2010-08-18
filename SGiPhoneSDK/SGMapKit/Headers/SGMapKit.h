@@ -1,6 +1,8 @@
 //
-//  SGMainViewController.h
-//  SGLayerUpdater
+//  SGMapKit.h
+//  SGMapKit
+//
+//  SGMapKit
 //
 //  Copyright (c) 2009-2010, SimpleGeo
 //  All rights reserved.
@@ -31,27 +33,8 @@
 //
 //  Created by Derek Smith.
 //
-
-#import <UIKit/UIKit.h>
-#import <MapKit/MapKit.h>
-
-#import "SGCreateRecordViewController.h"
-
-
-@interface SGMainViewController : UIViewController <SGLocationServiceDelegate, MKMapViewDelegate> {
-
-    @private
-    SGLayerMapView* layerMapView;
-
-    SGCreateRecordViewController* createRecordViewController;
-    UINavigationController* createRecordNavigationViewController;
-
-    SGLocationService* locationService;
-    
-    NSString* deleteRequestId;
-    NSString* sendRequestId;
-    
-    NSString* layerName;
-}
-
-@end
+ 
+#import "SGPointHelper.h"
+#import "SGRecordLine.h"
+#import "SGLayerMapView.h"
+#import "SGDynamicPolylineView.h"
