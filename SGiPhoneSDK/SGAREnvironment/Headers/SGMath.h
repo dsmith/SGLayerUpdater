@@ -1,6 +1,6 @@
 //
-//  main.m
-//  SGLayerUpdater
+//  SGMath.h
+//  SGAREnvironment
 //
 //  Copyright (c) 2009-2010, SimpleGeo
 //  All rights reserved.
@@ -32,12 +32,16 @@
 //  Created by Derek Smith.
 //
 
-#import <UIKit/UIKit.h>
+/* a simple structure for representing x,y,z points and vectors */
+typedef struct Point3Struct {
+	float x, y, z;
+} SGPoint3;
+typedef SGPoint3 SGVector3;
 
-int main(int argc, char *argv[]) {
-    
-    NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
-    int retVal = UIApplicationMain(argc, argv, nil, nil);
-    [pool release];
-    return retVal;
-}
+#define DEGREES_TO_RADIANS(__ANGLE__) ((__ANGLE__) / 180.0 * M_PI)
+
+/* create, initialize, and return a new SGVector */
+extern SGVector3* V3New(double x, double y, double z);
+
+/* return the distance between two points */
+extern float DistanceBetweenTwoPoints(float x1, float y1, float x2, float y2);

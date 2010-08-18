@@ -1,6 +1,6 @@
 //
-//  main.m
-//  SGLayerUpdater
+//  SGAREnvironment.h
+//  SGAREnvironment
 //
 //  Copyright (c) 2009-2010, SimpleGeo
 //  All rights reserved.
@@ -32,12 +32,11 @@
 //  Created by Derek Smith.
 //
 
-#import <UIKit/UIKit.h>
-
-int main(int argc, char *argv[]) {
-    
-    NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
-    int retVal = UIApplicationMain(argc, argv, nil, nil);
-    [pool release];
-    return retVal;
-}
+#import "SGEnvironmentConstants.h"
+#import "SGAnnotationView.h"
+#import "SGARView.h"
+#import "SGAnnotationViewContainer.h"
+#import "SGMovableStack.h"
+#import "SGRadar.h"
+#import "SGARResponder.h"
+#import "SGARViewController.h"

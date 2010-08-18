@@ -12,6 +12,22 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
+		4A2DFECF121C78400057290D /* SGBluePin.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A2DFE93121C78400057290D /* SGBluePin.png */; };
+		4A2DFED0121C78400057290D /* SGBottomInspectorBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A2DFE94121C78400057290D /* SGBottomInspectorBackground.png */; };
+		4A2DFED1121C78400057290D /* SGCloseButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A2DFE95121C78400057290D /* SGCloseButton.png */; };
+		4A2DFED2121C78400057290D /* SGDefaultContainer.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A2DFE96121C78400057290D /* SGDefaultContainer.png */; };
+		4A2DFED3121C78400057290D /* SGDefaultProfilePicture.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A2DFE97121C78400057290D /* SGDefaultProfilePicture.png */; };
+		4A2DFED4121C78400057290D /* SGDefaultRadarBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A2DFE98121C78400057290D /* SGDefaultRadarBackground.png */; };
+		4A2DFED5121C78400057290D /* SGDefaultRadarCurrentLocation.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A2DFE99121C78400057290D /* SGDefaultRadarCurrentLocation.png */; };
+		4A2DFED6121C78400057290D /* SGDefaultRadarTargetImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A2DFE9A121C78400057290D /* SGDefaultRadarTargetImage.png */; };
+		4A2DFED7121C78400057290D /* SGDefaultSelectedContainer.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A2DFE9B121C78400057290D /* SGDefaultSelectedContainer.png */; };
+		4A2DFED8121C78400057290D /* SGGlassTargetBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A2DFE9C121C78400057290D /* SGGlassTargetBackground.png */; };
+		4A2DFED9121C78400057290D /* SGMiddleInspectorBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A2DFE9D121C78400057290D /* SGMiddleInspectorBackground.png */; };
+		4A2DFEDA121C78400057290D /* SGRedPin.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A2DFE9E121C78400057290D /* SGRedPin.png */; };
+		4A2DFEDB121C78400057290D /* SGTopInspectorBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A2DFE9F121C78400057290D /* SGTopInspectorBackground.png */; };
+		4A2DFEF2121C81690057290D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A2DFEF1121C81690057290D /* AVFoundation.framework */; };
+		4A2DFEF4121C81690057290D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A2DFEF3121C81690057290D /* OpenGLES.framework */; };
+		4A2DFEFF121C819F0057290D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A2DFEFE121C819F0057290D /* QuartzCore.framework */; };
 		4A9357281219A1D60068DD31 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 4A9357271219A1D60068DD31 /* LICENSE */; };
 		4AE4AAFA121895FD00EF9BC2 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AE4AAF7121895FD00EF9BC2 /* MainWindow.xib */; };
 		4AE4AAFB121895FD00EF9BC2 /* SGLayerUpdater-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4AE4AAF8121895FD00EF9BC2 /* SGLayerUpdater-Info.plist */; };
@@ -29,6 +45,43 @@
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4A2DFE80121C78400057290D /* CLLocationAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLLocationAdditions.h; sourceTree = "<group>"; };
+		4A2DFE81121C78400057290D /* SG3DOverlayEnvironment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SG3DOverlayEnvironment.h; sourceTree = "<group>"; };
+		4A2DFE82121C78400057290D /* SG3DOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SG3DOverlayView.h; sourceTree = "<group>"; };
+		4A2DFE83121C78400057290D /* SGAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGAnnotationView.h; sourceTree = "<group>"; };
+		4A2DFE84121C78400057290D /* SGAnnotationViewContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGAnnotationViewContainer.h; sourceTree = "<group>"; };
+		4A2DFE85121C78400057290D /* SGAREnvironment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGAREnvironment.h; sourceTree = "<group>"; };
+		4A2DFE86121C78400057290D /* SGARResponder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGARResponder.h; sourceTree = "<group>"; };
+		4A2DFE87121C78400057290D /* SGARView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGARView.h; sourceTree = "<group>"; };
+		4A2DFE88121C78400057290D /* SGARViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGARViewController.h; sourceTree = "<group>"; };
+		4A2DFE89121C78400057290D /* SGControlEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGControlEvents.h; sourceTree = "<group>"; };
+		4A2DFE8A121C78400057290D /* SGEnvironmentConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGEnvironmentConstants.h; sourceTree = "<group>"; };
+		4A2DFE8B121C78400057290D /* SGHeadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGHeadingView.h; sourceTree = "<group>"; };
+		4A2DFE8C121C78400057290D /* SGMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGMath.h; sourceTree = "<group>"; };
+		4A2DFE8D121C78400057290D /* SGMetrics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGMetrics.h; sourceTree = "<group>"; };
+		4A2DFE8E121C78400057290D /* SGMovableStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGMovableStack.h; sourceTree = "<group>"; };
+		4A2DFE8F121C78400057290D /* SGRadar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGRadar.h; sourceTree = "<group>"; };
+		4A2DFE90121C78400057290D /* SGTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGTexture.h; sourceTree = "<group>"; };
+		4A2DFE91121C78400057290D /* UIImageAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageAdditions.h; sourceTree = "<group>"; };
+		4A2DFE93121C78400057290D /* SGBluePin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SGBluePin.png; sourceTree = "<group>"; };
+		4A2DFE94121C78400057290D /* SGBottomInspectorBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SGBottomInspectorBackground.png; sourceTree = "<group>"; };
+		4A2DFE95121C78400057290D /* SGCloseButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SGCloseButton.png; sourceTree = "<group>"; };
+		4A2DFE96121C78400057290D /* SGDefaultContainer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SGDefaultContainer.png; sourceTree = "<group>"; };
+		4A2DFE97121C78400057290D /* SGDefaultProfilePicture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SGDefaultProfilePicture.png; sourceTree = "<group>"; };
+		4A2DFE98121C78400057290D /* SGDefaultRadarBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SGDefaultRadarBackground.png; sourceTree = "<group>"; };
+		4A2DFE99121C78400057290D /* SGDefaultRadarCurrentLocation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SGDefaultRadarCurrentLocation.png; sourceTree = "<group>"; };
+		4A2DFE9A121C78400057290D /* SGDefaultRadarTargetImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SGDefaultRadarTargetImage.png; sourceTree = "<group>"; };
+		4A2DFE9B121C78400057290D /* SGDefaultSelectedContainer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SGDefaultSelectedContainer.png; sourceTree = "<group>"; };
+		4A2DFE9C121C78400057290D /* SGGlassTargetBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SGGlassTargetBackground.png; sourceTree = "<group>"; };
+		4A2DFE9D121C78400057290D /* SGMiddleInspectorBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SGMiddleInspectorBackground.png; sourceTree = "<group>"; };
+		4A2DFE9E121C78400057290D /* SGRedPin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SGRedPin.png; sourceTree = "<group>"; };
+		4A2DFE9F121C78400057290D /* SGTopInspectorBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SGTopInspectorBackground.png; sourceTree = "<group>"; };
+		4A2DFEA1121C78400057290D /* libSGAREnvironment.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSGAREnvironment.a; sourceTree = "<group>"; };
+		4A2DFEA3121C78400057290D /* libSGAREnvironment.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSGAREnvironment.a; sourceTree = "<group>"; };
+		4A2DFEF1121C81690057290D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		4A2DFEF3121C81690057290D /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		4A2DFEF9121C817B0057290D /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		4A2DFEFE121C819F0057290D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		4A9357271219A1D60068DD31 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		4AC4A696121B666600D1B3DA /* SGMapKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGMapKit.h; sourceTree = "<group>"; };
 		4AE4AAF3121895EE00EF9BC2 /* SGLayerUpdater.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SGLayerUpdater.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,6 +142,9 @@
 				288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */,
 				4AE4AC7612189A4B00EF9BC2 /* CoreLocation.framework in Frameworks */,
 				4AE4ACBE12189F7100EF9BC2 /* MapKit.framework in Frameworks */,
+				4A2DFEF2121C81690057290D /* AVFoundation.framework in Frameworks */,
+				4A2DFEF4121C81690057290D /* OpenGLES.framework in Frameworks */,
+				4A2DFEFF121C819F0057290D /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,23 +175,16 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				29B97316FDCFA39411CA2CEA /* main.m */,
+				4A2DFEF9121C817B0057290D /* README */,
 				4AE4AB101218992700EF9BC2 /* SGiPhoneSDK */,
 				4AE4AAF6121895FD00EF9BC2 /* Resources */,
 				080E96DDFE201D6D7F000001 /* Classes */,
-				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 				4A9357271219A1D60068DD31 /* LICENSE */,
 			);
 			name = CustomTemplate;
-			sourceTree = "<group>";
-		};
-		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
-			isa = PBXGroup;
-			children = (
-				29B97316FDCFA39411CA2CEA /* main.m */,
-			);
-			name = "Other Sources";
 			sourceTree = "<group>";
 		};
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
@@ -146,8 +195,83 @@
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				288765A40DF7441C002DB57D /* CoreGraphics.framework */,
+				4A2DFEF1121C81690057290D /* AVFoundation.framework */,
+				4A2DFEF3121C81690057290D /* OpenGLES.framework */,
+				4A2DFEFE121C819F0057290D /* QuartzCore.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4A2DFE34121C78400057290D /* SGAREnvironment */ = {
+			isa = PBXGroup;
+			children = (
+				4A2DFE7F121C78400057290D /* Headers */,
+				4A2DFE92121C78400057290D /* Images */,
+				4A2DFEA0121C78400057290D /* iphoneos */,
+				4A2DFEA2121C78400057290D /* iphonesimulator */,
+			);
+			path = SGAREnvironment;
+			sourceTree = "<group>";
+		};
+		4A2DFE7F121C78400057290D /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				4A2DFE80121C78400057290D /* CLLocationAdditions.h */,
+				4A2DFE81121C78400057290D /* SG3DOverlayEnvironment.h */,
+				4A2DFE82121C78400057290D /* SG3DOverlayView.h */,
+				4A2DFE83121C78400057290D /* SGAnnotationView.h */,
+				4A2DFE84121C78400057290D /* SGAnnotationViewContainer.h */,
+				4A2DFE85121C78400057290D /* SGAREnvironment.h */,
+				4A2DFE86121C78400057290D /* SGARResponder.h */,
+				4A2DFE87121C78400057290D /* SGARView.h */,
+				4A2DFE88121C78400057290D /* SGARViewController.h */,
+				4A2DFE89121C78400057290D /* SGControlEvents.h */,
+				4A2DFE8A121C78400057290D /* SGEnvironmentConstants.h */,
+				4A2DFE8B121C78400057290D /* SGHeadingView.h */,
+				4A2DFE8C121C78400057290D /* SGMath.h */,
+				4A2DFE8D121C78400057290D /* SGMetrics.h */,
+				4A2DFE8E121C78400057290D /* SGMovableStack.h */,
+				4A2DFE8F121C78400057290D /* SGRadar.h */,
+				4A2DFE90121C78400057290D /* SGTexture.h */,
+				4A2DFE91121C78400057290D /* UIImageAdditions.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		4A2DFE92121C78400057290D /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				4A2DFE93121C78400057290D /* SGBluePin.png */,
+				4A2DFE94121C78400057290D /* SGBottomInspectorBackground.png */,
+				4A2DFE95121C78400057290D /* SGCloseButton.png */,
+				4A2DFE96121C78400057290D /* SGDefaultContainer.png */,
+				4A2DFE97121C78400057290D /* SGDefaultProfilePicture.png */,
+				4A2DFE98121C78400057290D /* SGDefaultRadarBackground.png */,
+				4A2DFE99121C78400057290D /* SGDefaultRadarCurrentLocation.png */,
+				4A2DFE9A121C78400057290D /* SGDefaultRadarTargetImage.png */,
+				4A2DFE9B121C78400057290D /* SGDefaultSelectedContainer.png */,
+				4A2DFE9C121C78400057290D /* SGGlassTargetBackground.png */,
+				4A2DFE9D121C78400057290D /* SGMiddleInspectorBackground.png */,
+				4A2DFE9E121C78400057290D /* SGRedPin.png */,
+				4A2DFE9F121C78400057290D /* SGTopInspectorBackground.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		4A2DFEA0121C78400057290D /* iphoneos */ = {
+			isa = PBXGroup;
+			children = (
+				4A2DFEA1121C78400057290D /* libSGAREnvironment.a */,
+			);
+			path = iphoneos;
+			sourceTree = "<group>";
+		};
+		4A2DFEA2121C78400057290D /* iphonesimulator */ = {
+			isa = PBXGroup;
+			children = (
+				4A2DFEA3121C78400057290D /* libSGAREnvironment.a */,
+			);
+			path = iphonesimulator;
 			sourceTree = "<group>";
 		};
 		4AE4AAF6121895FD00EF9BC2 /* Resources */ = {
@@ -164,6 +288,7 @@
 		4AE4AB101218992700EF9BC2 /* SGiPhoneSDK */ = {
 			isa = PBXGroup;
 			children = (
+				4A2DFE34121C78400057290D /* SGAREnvironment */,
 				4AE4AD621218B4EA00EF9BC2 /* SGMapKit */,
 				4AE4AB111218992700EF9BC2 /* SGClient */,
 			);
@@ -317,6 +442,19 @@
 				4AE4AAFB121895FD00EF9BC2 /* SGLayerUpdater-Info.plist in Resources */,
 				4AE4AB01121896EE00EF9BC2 /* Token.plist in Resources */,
 				4A9357281219A1D60068DD31 /* LICENSE in Resources */,
+				4A2DFECF121C78400057290D /* SGBluePin.png in Resources */,
+				4A2DFED0121C78400057290D /* SGBottomInspectorBackground.png in Resources */,
+				4A2DFED1121C78400057290D /* SGCloseButton.png in Resources */,
+				4A2DFED2121C78400057290D /* SGDefaultContainer.png in Resources */,
+				4A2DFED3121C78400057290D /* SGDefaultProfilePicture.png in Resources */,
+				4A2DFED4121C78400057290D /* SGDefaultRadarBackground.png in Resources */,
+				4A2DFED5121C78400057290D /* SGDefaultRadarCurrentLocation.png in Resources */,
+				4A2DFED6121C78400057290D /* SGDefaultRadarTargetImage.png in Resources */,
+				4A2DFED7121C78400057290D /* SGDefaultSelectedContainer.png in Resources */,
+				4A2DFED8121C78400057290D /* SGGlassTargetBackground.png in Resources */,
+				4A2DFED9121C78400057290D /* SGMiddleInspectorBackground.png in Resources */,
+				4A2DFEDA121C78400057290D /* SGRedPin.png in Resources */,
+				4A2DFEDB121C78400057290D /* SGTopInspectorBackground.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,6 +487,7 @@
 				INFOPLIST_FILE = "Resources/SGLayerUpdater-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"SGiPhoneSDK/SGClient/$(PLATFORM_NAME)",
+					"SGiPhoneSDK/SGAREnvironment/$(PLATFORM_NAME)",
 					"\"$(SRCROOT)/SGiPhoneSDK/SGMapKit/$(PLATFORM_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -358,6 +497,8 @@
 					SGClient,
 					"-l",
 					SGMapKit,
+					"-l",
+					SGAREnvironment,
 				);
 				PRODUCT_NAME = SGLayerUpdater;
 			};
@@ -373,6 +514,7 @@
 				INFOPLIST_FILE = "Resources/SGLayerUpdater-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"SGiPhoneSDK/SGClient/$(PLATFORM_NAME)",
+					"SGiPhoneSDK/SGAREnvironment/$(PLATFORM_NAME)",
 					"\"$(SRCROOT)/SGiPhoneSDK/SGMapKit/$(PLATFORM_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -382,6 +524,8 @@
 					SGClient,
 					"-l",
 					SGMapKit,
+					"-l",
+					SGAREnvironment,
 				);
 				PRODUCT_NAME = SGLayerUpdater;
 				VALIDATE_PRODUCT = YES;

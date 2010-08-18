@@ -1,6 +1,6 @@
 //
-//  main.m
-//  SGLayerUpdater
+//  SGHeadingView.h
+//  SGAREnvironment
 //
 //  Copyright (c) 2009-2010, SimpleGeo
 //  All rights reserved.
@@ -32,12 +32,20 @@
 //  Created by Derek Smith.
 //
 
-#import <UIKit/UIKit.h>
+/*!
+* @class SGHeadingView 
+* @abstract The heading view that is displayed within a @link //simplegeo/ooc/cl/SGRadar SGRadar @/link. 
+*/
+@interface SGHeadingView : UIView {
 
-int main(int argc, char *argv[]) {
+    UIColor* headingViewColor;
     
-    NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
-    int retVal = UIApplicationMain(argc, argv, nil, nil);
-    [pool release];
-    return retVal;
 }
+
+/*!
+* @property
+* @abstract The color of the heading view.
+*/
+@property (nonatomic, retain) UIColor* headingViewColor;
+
+@end

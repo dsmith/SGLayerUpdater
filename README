@@ -17,6 +17,9 @@ Frameworks
 - Foundation
 - UIKit
 - CoreGraphics
+- AVFoundation
+- OpenGLES
+- QuartzCore
 
 ================================================================================
 PACKAGING LIST:

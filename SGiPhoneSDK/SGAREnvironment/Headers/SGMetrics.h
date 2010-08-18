@@ -1,6 +1,6 @@
 //
-//  main.m
-//  SGLayerUpdater
+//  SGMetrics.h
+//  SGAREnvironment
 //
 //  Copyright (c) 2009-2010, SimpleGeo
 //  All rights reserved.
@@ -32,12 +32,4 @@
 //  Created by Derek Smith.
 //
 
-#import <UIKit/UIKit.h>
-
-int main(int argc, char *argv[]) {
-    
-    NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
-    int retVal = UIApplicationMain(argc, argv, nil, nil);
-    [pool release];
-    return retVal;
-}
+#define kSGMeter                    10.0f

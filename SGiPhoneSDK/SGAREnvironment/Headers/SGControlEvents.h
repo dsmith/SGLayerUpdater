@@ -1,6 +1,6 @@
 //
-//  main.m
-//  SGLayerUpdater
+//  SGControlEvents.h
+//  SGAREnvironment
 //
 //  Copyright (c) 2009-2010, SimpleGeo
 //  All rights reserved.
@@ -32,12 +32,26 @@
 //  Created by Derek Smith.
 //
 
-#import <UIKit/UIKit.h>
+/*!
+* @enum SGControlEvent
+* @abstract The control events that are triggered within the AR enviornment.
+* @discussion These control events are created from @link //simplegeo/ooc/cl/SG3DOverlayEnvironment SG3DOverlayEnviornment @/link.
+* Since the AR environment is rendered in OpenGL, we have to be responsible for computing
+* what type of touch events are generated.
+* @constant kSGControlEvent_Drag
+* @constant kSGControlEvent_DragEnded
+* @constant kSGControlEvent_Touch
+* @constant kSGControlEvent_DoubleTouch
+* @constant kSGControlEvent_TouchEnded
+*/
+enum SGControlEvent {
 
-int main(int argc, char *argv[]) {
-    
-    NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
-    int retVal = UIApplicationMain(argc, argv, nil, nil);
-    [pool release];
-    return retVal;
-}
+    kSGControlEvent_Drag = 0,
+    kSGControlEvent_DragEnded,
+    kSGControlEvent_Touch,
+    kSGControlEvent_DoubleTouch,
+    kSGControlEvent_TouchEnded
+
+};
+
+typedef NSInteger SGControlEvent;
