@@ -6,5 +6,7 @@
 	<string>my-key</string>
 	<key>secret</key>
 	<string>my-secret</string>
+	<key>layer</key>
+	<string>my-layer</string>
 </dict>
 </plist>
