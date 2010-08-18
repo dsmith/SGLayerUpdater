@@ -92,11 +92,11 @@
     layerMapView = [[SGLayerMapView alloc] initWithFrame:self.view.bounds];
     [layerMapView addLayers:[NSArray arrayWithObject:[[SGLayer alloc] initWithLayerName:layerName]]];
 
-    layerMapView.showsUserLocation = YES;
     layerMapView.addRetrievedRecordsToLayer = NO;
     layerMapView.delegate = self;
 
     [self.view addSubview:layerMapView];
+    [layerMapView startRetrieving];
     
     [self initializeCreateRecordViewController];
     UIBarButtonItem* addRecordButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
