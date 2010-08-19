@@ -34,9 +34,10 @@
 
 #import "SGMainViewController.h"
 
-@interface SGMainViewController (Private) <SGARViewDataSource>
+@interface SGMainViewController (Private) <SGARViewDataSource, SGAnnotationViewDelegate>
 
 - (BOOL) isRequestId:(NSString*)requestIdOne equalTo:(NSString*)requestIdTwo;
+- (NSArray*) getMapAnnotations;
 
 - (void) initializeCreateRecordViewController;
 - (void) initializeARView;
@@ -119,9 +120,21 @@
 
     layerMapView.addRetrievedRecordsToLayer = NO;
     layerMapView.delegate = self;
+    layerMapView.showsUserLocation = YES;
+    layerMapView.reloadTimeInterval = 10.0;
 
     [self.view addSubview:layerMapView];
     [layerMapView startRetrieving];
+    
+    UIButton* locateMeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [locateMeButton addTarget:self action:@selector(locateMe:) forControlEvents:UIControlEventTouchUpInside];
+    UIImage* locateMeImage = [UIImage imageNamed:@"LocateMe.png"];
+    locateMeButton.frame = CGRectMake(0.0, 0.0, locateMeImage.size.width, locateMeImage.size.height);
+    [locateMeButton setImage:locateMeImage forState:UIControlStateNormal];
+    UIBarButtonItem* locateMeBarButton = [[UIBarButtonItem alloc] initWithCustomView:locateMeButton];
+    [self setToolbarItems:[NSArray arrayWithObject:locateMeBarButton] animated:NO];
+    [self.navigationController setToolbarHidden:NO animated:NO];
+    [locateMeBarButton release];
     
     [self initializeCreateRecordViewController];    
     [self initializeARView];
@@ -163,7 +176,7 @@
                           duration:1.3
                            options:UIViewAnimationOptionTransitionCurlUp
                         animations:^{ [self.view addSubview:arView]; } 
-                        completion:^(BOOL completed) { revealButton.enabled = YES; [arView startAnimation]; }
+                        completion:^(BOOL completed) { revealButton.enabled = YES; [arView reloadData]; [arView startAnimation]; }
          ];
     else
         [UIView transitionWithView:self.view
@@ -175,6 +188,13 @@
     
     [UIView commitAnimations];
     revealButton.tag = !revealButton.tag;
+}
+
+- (void) locateMe:(id)button
+{
+    CLLocation* userLocation = layerMapView.userLocation.location;
+    MKCoordinateSpan span = MKCoordinateSpanMake(0.0001, 0.0001);
+    [layerMapView setRegion:MKCoordinateRegionMake(userLocation.coordinate, span) animated:YES]; 
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -270,12 +290,37 @@
 
 - (NSArray*) arView:(SGARView*)view annotationsAtLocation:(CLLocation*)location
 {
-    return [NSArray arrayWithArray:layerMapView.annotations];
+    return [self getMapAnnotations];
 }
 
 - (SGAnnotationView*) arView:(SGARView*)view viewForAnnotation:(id<MKAnnotation>)annotation
 {
-    return nil;
+    SGAnnotationView* annotationView = [arView dequeueReuseableAnnotationViewWithIdentifier:@"Record"];
+    if(!annotationView) {
+        annotationView = [[[SGAnnotationView alloc] initAtPoint:CGPointZero reuseIdentifier:@"Record"] autorelease];
+        annotationView.delegate = self;        
+    }
+
+    annotationView.titleLabel.text = annotation.title;
+    annotationView.detailedLabel.text = annotation.subtitle;
+    
+    return annotationView;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark -
+#pragma mark SGAnnotationView delegate methods 
+//////////////////////////////////////////////////////////////////////////////////////////////// 
+
+- (UIView*) shouldInspectAnnotationView:(SGAnnotationView*)view
+{
+    return view;
+}
+
+- (BOOL) shouldCloseAnnotationView:(SGAnnotationView*)view
+{
+    [view inspectView:NO];
+    return YES;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -286,6 +331,13 @@
 - (BOOL) isRequestId:(NSString*)requestIdOne equalTo:(NSString*)requestIdTwo
 {
     return requestIdOne && requestIdTwo && [requestIdOne isEqualToString:requestIdTwo];
+}
+
+- (NSArray*) getMapAnnotations
+{
+    NSMutableArray* annotations = [NSMutableArray arrayWithArray:layerMapView.annotations];
+    [annotations removeObject:layerMapView.userLocation];
+    return annotations;
 }
 
 - (void) dealloc
