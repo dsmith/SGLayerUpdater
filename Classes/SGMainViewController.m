@@ -94,7 +94,6 @@
     arView.dataSource = self;
     
     arView.enableGridLines = NO;
-    arView.enableWalking = NO;
     
     UIBarButtonItem* revealButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction
                                                                                 target:self
@@ -171,14 +170,15 @@
 {
     UIBarButtonItem* revealButton = (UIBarButtonItem*)button;
     revealButton.enabled = NO;
-    if(revealButton.tag)
+    if(revealButton.tag) {
+        [arView reloadData];
         [UIView transitionWithView:self.view
                           duration:1.3
                            options:UIViewAnimationOptionTransitionCurlUp
                         animations:^{ [self.view addSubview:arView]; } 
-                        completion:^(BOOL completed) { revealButton.enabled = YES; [arView reloadData]; [arView startAnimation]; }
+                        completion:^(BOOL completed) { revealButton.enabled = YES; [arView startAnimation]; }
          ];
-    else
+    } else
         [UIView transitionWithView:self.view
                           duration:1.3
                            options:UIViewAnimationOptionTransitionCurlDown
