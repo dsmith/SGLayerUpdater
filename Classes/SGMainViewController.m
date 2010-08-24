@@ -87,7 +87,7 @@
 {
     [super loadView];
     
-    self.title = @"SGRecordUpdater";
+    self.title = @"SGLayerUpdater";
         
     layerMapView = [[SGLayerMapView alloc] initWithFrame:self.view.bounds];
     [layerMapView addLayers:[NSArray arrayWithObject:[[SGLayer alloc] initWithLayerName:layerName]]];
