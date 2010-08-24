@@ -94,6 +94,7 @@
 
     layerMapView.addRetrievedRecordsToLayer = NO;
     layerMapView.delegate = self;
+    layerMapView.reloadTimeInterval = 3.0;
 
     [self.view addSubview:layerMapView];
     [layerMapView startRetrieving];
