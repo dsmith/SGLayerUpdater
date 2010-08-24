@@ -1,5 +1,5 @@
 //
-//  SGAREnvironment.h
+//  SGPinAnnotationView.h
 //  SGAREnvironment
 //
 //  Copyright (c) 2009-2010, SimpleGeo
@@ -33,15 +33,25 @@
 //
 
 #import "SGAnnotationView.h"
-#import "SGPinAnnotationView.h"
-#import "SGGlassAnnotationView.h"
 
-#import "SGAnnotationViewContainer.h"
-#import "SGMovableStack.h"
-#import "SGRadar.h"
+enum SGPinColor {
+    kSGPinColor_Red,
+    kSGPinColor_Blue
+};
 
-#import "SGARViewController.h"
-#import "SGARView.h"
+typedef NSInteger SGPinColor;
 
-#import "SGEnvironmentConstants.h"
-#import "SGARResponder.h"
+@interface SGPinAnnotationView : SGAnnotationView {
+        
+    SGPinColor pinColor;
+
+}
+
+/*!
+ * @property
+ * @abstract The pin color to use when the view is in target mode and @link targetType targetType @/link is set
+ * @link kSGAnnotationViewTargetType_Pin kSGAnnotationViewTargetType_Pin @/link. The default is @link kSGPinColor_Red kSGPinColor_Red @/link.
+ */
+@property (nonatomic, assign) SGPinColor pinColor;
+
+@end
