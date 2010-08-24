@@ -43,6 +43,8 @@
     UITextField* latitudeTextField;
     UITextField* longitudeTextField;
     UITextField* noteTextField;
+    
+    CLLocationManager* locationManager;
 }
 
 @property (nonatomic, readonly) SGRecord* record;

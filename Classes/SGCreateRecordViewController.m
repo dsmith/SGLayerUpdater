@@ -58,6 +58,8 @@ typedef NSInteger SGCreateRecordViewControllerSection;
 {
     if(self = [super initWithStyle:style]) {
         self.title = @"Create Record";
+        locationManager = [[CLLocationManager alloc] init];
+        [locationManager startUpdatingLocation];
     }
     
     return self;
@@ -77,9 +79,8 @@ typedef NSInteger SGCreateRecordViewControllerSection;
 {
     [super viewWillAppear:animated];
 
-    CLLocation* currentLocation = [SGLocationService sharedLocationService].locationManager.location;
-    latitudeTextField.text = [NSString stringWithFormat:@"%f", currentLocation.coordinate.latitude];
-    longitudeTextField.text = [NSString stringWithFormat:@"%f", currentLocation.coordinate.longitude];
+    latitudeTextField.text = [NSString stringWithFormat:@"%f", locationManager.location.coordinate.latitude];
+    longitudeTextField.text = [NSString stringWithFormat:@"%f", locationManager.location.coordinate.longitude];
     recordIdTextField.text = @"default";
     noteTextField.text = @"";
     
@@ -173,7 +174,6 @@ typedef NSInteger SGCreateRecordViewControllerSection;
     }
     
     return rows;
-    
 }
 
 - (NSString*) tableView:(UITableView*)tableView titleForHeaderInSection:(NSInteger)section
@@ -257,7 +257,8 @@ typedef NSInteger SGCreateRecordViewControllerSection;
     [latitudeTextField release];
     [longitudeTextField release];
     [noteTextField release];
-    
+
+    [locationManager release];
     [super dealloc];
 }
 
