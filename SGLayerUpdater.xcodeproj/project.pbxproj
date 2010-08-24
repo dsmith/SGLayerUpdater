@@ -16,7 +16,6 @@
 		4A70608312243B6B00B3D330 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A70608112243B6B00B3D330 /* Icon.png */; };
 		4A9357281219A1D60068DD31 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 4A9357271219A1D60068DD31 /* LICENSE */; };
 		4AE4AAFA121895FD00EF9BC2 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AE4AAF7121895FD00EF9BC2 /* MainWindow.xib */; };
-		4AE4AAFB121895FD00EF9BC2 /* SGLayerUpdater-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4AE4AAF8121895FD00EF9BC2 /* SGLayerUpdater-Info.plist */; };
 		4AE4AB01121896EE00EF9BC2 /* Token.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4AE4AB00121896EE00EF9BC2 /* Token.plist */; };
 		4AE4AC7612189A4B00EF9BC2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AE4AC7512189A4B00EF9BC2 /* CoreLocation.framework */; };
 		4AE4ACB012189C9600EF9BC2 /* SGMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE4ACAF12189C9600EF9BC2 /* SGMainViewController.m */; };
@@ -33,6 +32,7 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4A70608012243B6B00B3D330 /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
 		4A70608112243B6B00B3D330 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		4A70618F12244E5900B3D330 /* CLLocationAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLLocationAdditions.h; sourceTree = "<group>"; };
 		4A9357271219A1D60068DD31 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		4AC4A696121B666600D1B3DA /* SGMapKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGMapKit.h; sourceTree = "<group>"; };
 		4AE4AAF3121895EE00EF9BC2 /* SGLayerUpdater.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SGLayerUpdater.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -249,6 +249,7 @@
 		4AE4AD831218B4EA00EF9BC2 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
+				4A70618F12244E5900B3D330 /* CLLocationAdditions.h */,
 				4AC4A696121B666600D1B3DA /* SGMapKit.h */,
 				4AE4AD841218B4EA00EF9BC2 /* SGDynamicPolylineView.h */,
 				4AE4AD851218B4EA00EF9BC2 /* SGLayerMapView.h */,
@@ -320,7 +321,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AE4AAFA121895FD00EF9BC2 /* MainWindow.xib in Resources */,
-				4AE4AAFB121895FD00EF9BC2 /* SGLayerUpdater-Info.plist in Resources */,
 				4AE4AB01121896EE00EF9BC2 /* Token.plist in Resources */,
 				4A9357281219A1D60068DD31 /* LICENSE in Resources */,
 				4A70608212243B6B00B3D330 /* iTunesArtwork.png in Resources */,
