@@ -12,6 +12,8 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
+		4A70608212243B6B00B3D330 /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A70608012243B6B00B3D330 /* iTunesArtwork.png */; };
+		4A70608312243B6B00B3D330 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A70608112243B6B00B3D330 /* Icon.png */; };
 		4A9357281219A1D60068DD31 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 4A9357271219A1D60068DD31 /* LICENSE */; };
 		4AE4AAFA121895FD00EF9BC2 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AE4AAF7121895FD00EF9BC2 /* MainWindow.xib */; };
 		4AE4AAFB121895FD00EF9BC2 /* SGLayerUpdater-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4AE4AAF8121895FD00EF9BC2 /* SGLayerUpdater-Info.plist */; };
@@ -29,6 +31,8 @@
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4A70608012243B6B00B3D330 /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
+		4A70608112243B6B00B3D330 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		4A9357271219A1D60068DD31 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		4AC4A696121B666600D1B3DA /* SGMapKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGMapKit.h; sourceTree = "<group>"; };
 		4AE4AAF3121895EE00EF9BC2 /* SGLayerUpdater.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SGLayerUpdater.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -153,6 +157,8 @@
 		4AE4AAF6121895FD00EF9BC2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4A70608012243B6B00B3D330 /* iTunesArtwork.png */,
+				4A70608112243B6B00B3D330 /* Icon.png */,
 				4AE4AAF7121895FD00EF9BC2 /* MainWindow.xib */,
 				4AE4AAF8121895FD00EF9BC2 /* SGLayerUpdater-Info.plist */,
 				4AE4AAF9121895FD00EF9BC2 /* SGLayerUpdater_Prefix.pch */,
@@ -317,6 +323,8 @@
 				4AE4AAFB121895FD00EF9BC2 /* SGLayerUpdater-Info.plist in Resources */,
 				4AE4AB01121896EE00EF9BC2 /* Token.plist in Resources */,
 				4A9357281219A1D60068DD31 /* LICENSE in Resources */,
+				4A70608212243B6B00B3D330 /* iTunesArtwork.png in Resources */,
+				4A70608312243B6B00B3D330 /* Icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
