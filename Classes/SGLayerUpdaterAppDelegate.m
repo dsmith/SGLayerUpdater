@@ -35,8 +35,6 @@
 #import "SGLayerUpdaterAppDelegate.h"
 #import "SGMainViewController.h"
 
-#import "SGClient.h"
-
 @implementation SGLayerUpdaterAppDelegate
 @synthesize window;
 
