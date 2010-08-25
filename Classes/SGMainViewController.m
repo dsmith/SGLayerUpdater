@@ -34,7 +34,7 @@
 
 #import "SGMainViewController.h"
 
-@interface SGMainViewController (Private)
+@interface SGMainViewController (Private) <MKMapViewDelegate>
 
 - (BOOL) isRequestId:(NSString*)requestIdOne equalTo:(NSString*)requestIdTwo;
 - (void) initializeCreateRecordViewController;
@@ -46,11 +46,8 @@
 - (id) initWithLayer:(NSString*)name
 {
     if(self = [super init]) {
-        
         layerName = [name retain];
-        
         sendRequestId = nil;
-        deleteRequestId = nil;
     }
     
     return self;
@@ -126,18 +123,13 @@
 
 - (void) locationService:(SGLocationService*)service failedForResponseId:(NSString*)requestId error:(NSError*)error
 {
-    if([self isRequestId:requestId equalTo:sendRequestId]) {
-     
-        UIAlertView* errorAlert = [[UIAlertView alloc]
-                                   initWithTitle:@"ERROR!!!"
-                                   message:[error description]
-                                   delegate:nil
-                                   cancelButtonTitle:@"OK"
-                                   otherButtonTitles:nil];
-        [error show];
-        [error autorelease];
-        sendRequestId = nil;
-    }
+    UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"ERROR!!!"
+                                                        message:[error description]
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+    [alertView show];
+    [alertView release];    
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -189,10 +181,8 @@
             [noteAlertView show];
             [noteAlertView release];
         } else {
-            if(!deleteRequestId) {
-                [layerMapView removeAnnotation:record];            
-                deleteRequestId = [locationService deleteRecordAnnotation:record];
-            }
+            [layerMapView removeAnnotation:record];            
+            [locationService deleteRecordAnnotation:record];
         }
     }
 }
@@ -216,7 +206,6 @@
     
     [locationService release];
     
-    [deleteRequestId release];
     [sendRequestId release];
     
     [layerName release];

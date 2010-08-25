@@ -47,6 +47,17 @@
 
 - (BOOL) application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions
 {   
+    NSString* key = @"";
+    NSString* secret = @"";
+    NSString* layer = @"";
+
+    SGLocationService* locationService = [SGLocationService sharedLocationService];
+    SGOAuth* oauthToken = [[SGOAuth alloc] initWithKey:key secret:secret];
+    locationService.HTTPAuthorizer = oauthToken;
+    
+    SGMainViewController* mainViewController = [[SGMainViewController alloc] initWithLayer:layer];
+    UINavigationController* nvc = [[UINavigationController alloc] initWithRootViewController:mainViewController];
+    [window addSubview:nvc.view];
     
     [window makeKeyAndVisible];
 	return YES;

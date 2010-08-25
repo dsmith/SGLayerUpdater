@@ -205,8 +205,18 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Resources/SGLayerUpdater_Prefix.pch;
 				INFOPLIST_FILE = "Resources/SGLayerUpdater-Info.plist";
-				LIBRARY_SEARCH_PATHS = "";
-				OTHER_LDFLAGS = "";
+				LIBRARY_SEARCH_PATHS = (
+					"\"$(SRCROOT)/Resources/3rd-Party/SGClient/SGClient-v0.4.1/$(PLATFORM_NAME)\"",
+					"\"$(SRCROOT)/Resources/3rd-Party/SGMapKit/SGMapKit-v0.4.1/$(PLATFORM_NAME)\"",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+					"-l",
+					SGMapKit,
+					"-l",
+					SGClient,
+				);
 				PRODUCT_NAME = SGLayerUpdater;
 			};
 			name = Debug;
@@ -219,8 +229,18 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Resources/SGLayerUpdater_Prefix.pch;
 				INFOPLIST_FILE = "Resources/SGLayerUpdater-Info.plist";
-				LIBRARY_SEARCH_PATHS = "";
-				OTHER_LDFLAGS = "";
+				LIBRARY_SEARCH_PATHS = (
+					"\"$(SRCROOT)/Resources/3rd-Party/SGClient/SGClient-v0.4.1/$(PLATFORM_NAME)\"",
+					"\"$(SRCROOT)/Resources/3rd-Party/SGMapKit/SGMapKit-v0.4.1/$(PLATFORM_NAME)\"",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+					"-l",
+					SGMapKit,
+					"-l",
+					SGClient,
+				);
 				PRODUCT_NAME = SGLayerUpdater;
 				VALIDATE_PRODUCT = YES;
 			};

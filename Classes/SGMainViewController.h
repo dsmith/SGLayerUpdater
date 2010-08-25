@@ -48,7 +48,6 @@
 
     SGLocationService* locationService;
     
-    NSString* deleteRequestId;
     NSString* sendRequestId;
     
     NSString* layerName;
