@@ -122,14 +122,11 @@
 
 - (void) locationService:(SGLocationService*)service succeededForResponseId:(NSString*)requestId responseObject:(NSObject*)responseObject
 {
-    if([self isRequestId:requestId equalTo:sendRequestId]) {
-        sendRequestId = nil;
-    }
 }
 
 - (void) locationService:(SGLocationService*)service failedForResponseId:(NSString*)requestId error:(NSError*)error
 {
-    if([self isRequestId:requestId equaltTo:sendRequestId]) {
+    if([self isRequestId:requestId equalTo:sendRequestId]) {
      
         UIAlertView* errorAlert = [[UIAlertView alloc]
                                    initWithTitle:@"ERROR!!!"

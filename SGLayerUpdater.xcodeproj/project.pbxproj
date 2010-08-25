@@ -84,7 +84,6 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				4ADE9E331225C17E002C61D7 /* SGiPhoneSDK */,
 				4AE4AAF6121895FD00EF9BC2 /* Resources */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
@@ -113,13 +112,6 @@
 				288765A40DF7441C002DB57D /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		4ADE9E331225C17E002C61D7 /* SGiPhoneSDK */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = SGiPhoneSDK;
 			sourceTree = "<group>";
 		};
 		4AE4AAF6121895FD00EF9BC2 /* Resources */ = {
