@@ -38,7 +38,7 @@
 #import "SGCreateRecordViewController.h"
 
 
-@interface SGMainViewController : UIViewController <SGLocationServiceDelegate, MKMapViewDelegate> {
+@interface SGMainViewController : UIViewController <MKMapViewDelegate> {
 
     @private
     SGLayerMapView* layerMapView;

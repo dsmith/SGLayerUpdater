@@ -46,8 +46,6 @@
 - (id) initWithLayer:(NSString*)name
 {
     if(self = [super init]) {
-        locationService = [SGLocationService sharedLocationService];
-        [locationService addDelegate:self];
         
         layerName = [name retain];
         
@@ -88,17 +86,7 @@
     [super loadView];
     
     self.title = @"SGLayerUpdater";
-        
-    layerMapView = [[SGLayerMapView alloc] initWithFrame:self.view.bounds];
-    [layerMapView addLayers:[NSArray arrayWithObject:[[SGLayer alloc] initWithLayerName:layerName]]];
-
-    layerMapView.addRetrievedRecordsToLayer = NO;
-    layerMapView.delegate = self;
-    layerMapView.reloadTimeInterval = 3.0;
-
-    [self.view addSubview:layerMapView];
-    [layerMapView startRetrieving];
-    
+            
     [self initializeCreateRecordViewController];
     UIBarButtonItem* addRecordButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                                                                      target:self
@@ -125,14 +113,6 @@
 
 - (void) updateRecord:(id)button
 {
-    if(!sendRequestId) {
-        SGRecord* newRecord = createRecordViewController.record;
-        newRecord.layer = layerName;
-
-        sendRequestId = [locationService updateRecordAnnotation:newRecord];
-
-        [createRecordNavigationViewController dismissModalViewControllerAnimated:YES];
-    }
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -142,25 +122,24 @@
 
 - (void) locationService:(SGLocationService*)service succeededForResponseId:(NSString*)requestId responseObject:(NSObject*)responseObject
 {
-    if([self isRequestId:requestId equalTo:sendRequestId]) {  
-        id<SGRecordAnnotation> recordAnnotation = [SGGeoJSONEncoder recordForGeoJSONObject:(NSDictionary*)responseObject];
-        [layerMapView addAnnotation:recordAnnotation];
+    if([self isRequestId:requestId equalTo:sendRequestId]) {
         sendRequestId = nil;
-    } else if([self isRequestId:requestId equalTo:deleteRequestId]) {
-        deleteRequestId = nil;
     }
 }
 
 - (void) locationService:(SGLocationService*)service failedForResponseId:(NSString*)requestId error:(NSError*)error
 {
-    if([self isRequestId:requestId equalTo:deleteRequestId] || [self isRequestId:requestId equalTo:sendRequestId]) {
-        UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"ERROR!!!"
-                                                            message:[error description]
-                                                           delegate:self
-                                                  cancelButtonTitle:@"OK"
-                                                  otherButtonTitles:nil];
-        [alertView show];
-        [alertView release];
+    if([self isRequestId:requestId equaltTo:sendRequestId]) {
+     
+        UIAlertView* errorAlert = [[UIAlertView alloc]
+                                   initWithTitle:@"ERROR!!!"
+                                   message:[error description]
+                                   delegate:nil
+                                   cancelButtonTitle:@"OK"
+                                   otherButtonTitles:nil];
+        [error show];
+        [error autorelease];
+        sendRequestId = nil;
     }
 }
 
