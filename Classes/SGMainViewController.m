@@ -174,19 +174,22 @@
     revealButton.enabled = NO;
     if(revealButton.tag) {
         [arView reloadData];
+        [layerMapView stopRetrieving];
         [UIView transitionWithView:self.view
                           duration:1.3
                            options:UIViewAnimationOptionTransitionCurlUp
                         animations:^{ [self.view addSubview:arView]; } 
                         completion:^(BOOL completed) { revealButton.enabled = YES; [arView startAnimation]; }
          ];
-    } else
+    } else {
+        [arView stopAnimation];
         [UIView transitionWithView:self.view
                           duration:1.3
                            options:UIViewAnimationOptionTransitionCurlDown
                         animations:^{ [arView removeFromSuperview]; } 
                         completion:^(BOOL completed) { revealButton.enabled = YES; [layerMapView startRetrieving]; }
          ];
+    }
     
     [UIView commitAnimations];
     revealButton.tag = !revealButton.tag;
