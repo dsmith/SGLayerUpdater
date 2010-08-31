@@ -34,6 +34,8 @@
 
 #import "SGMainViewController.h"
 
+#import "SGSimpleAnnotationView.h"
+
 @interface SGMainViewController (Private) <SGARViewDataSource, SGAnnotationViewDelegate>
 
 - (BOOL) isRequestId:(NSString*)requestIdOne equalTo:(NSString*)requestIdTwo;
@@ -92,7 +94,7 @@
 {
     arView = [[SGARView alloc] initWithFrame:self.view.bounds];
     arView.dataSource = self;
-    
+    arView.radar.frame = CGRectMake(20.0, 20.0, 100.0, 100.0);
     arView.enableGridLines = NO;
     
     UIBarButtonItem* revealButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction
@@ -172,19 +174,22 @@
     revealButton.enabled = NO;
     if(revealButton.tag) {
         [arView reloadData];
+        [layerMapView stopRetrieving];
         [UIView transitionWithView:self.view
                           duration:1.3
                            options:UIViewAnimationOptionTransitionCurlUp
                         animations:^{ [self.view addSubview:arView]; } 
                         completion:^(BOOL completed) { revealButton.enabled = YES; [arView startAnimation]; }
          ];
-    } else
+    } else {
+        [arView stopAnimation];
         [UIView transitionWithView:self.view
                           duration:1.3
                            options:UIViewAnimationOptionTransitionCurlDown
                         animations:^{ [arView removeFromSuperview]; } 
                         completion:^(BOOL completed) { revealButton.enabled = YES; [layerMapView startRetrieving]; }
          ];
+    }
     
     [UIView commitAnimations];
     revealButton.tag = !revealButton.tag;
@@ -295,14 +300,21 @@
 
 - (SGAnnotationView*) arView:(SGARView*)view viewForAnnotation:(id<MKAnnotation>)annotation
 {
-    SGAnnotationView* annotationView = [arView dequeueReuseableAnnotationViewWithIdentifier:@"Record"];
+    SGGlassAnnotationView* annotationView = (SGGlassAnnotationView*)[arView dequeueReuseableAnnotationViewWithIdentifier:@"Record"];
     if(!annotationView) {
-        annotationView = [[[SGAnnotationView alloc] initAtPoint:CGPointZero reuseIdentifier:@"Record"] autorelease];
+        CGRect inspectRect = [SGGlassAnnotationView inspectRect];
+        inspectRect = CGRectMake((self.view.bounds.size.width - inspectRect.size.width) / 2.0,
+                                 (self.view.bounds.size.height - inspectRect.size.height) / 2.0,
+                                 inspectRect.size.width,
+                                 inspectRect.size.height);
+        annotationView = [[[SGSimpleAnnotationView alloc] initWithFrame:inspectRect reuseIdentifier:@"Record"] autorelease];
         annotationView.delegate = self;        
     }
 
+    annotationView.closeButton.hidden = YES;
+    annotationView.inspectionMode = YES;
     annotationView.titleLabel.text = annotation.title;
-    annotationView.detailedLabel.text = annotation.subtitle;
+    annotationView.messageLabel.text = annotation.subtitle;
     
     return annotationView;
 }
@@ -312,15 +324,10 @@
 #pragma mark SGAnnotationView delegate methods 
 //////////////////////////////////////////////////////////////////////////////////////////////// 
 
-- (UIView*) shouldInspectAnnotationView:(SGAnnotationView*)view
+- (UIView*) shouldInspectAnnotationView:(SGAnnotationView*)annotationView
 {
-    return view;
-}
-
-- (BOOL) shouldCloseAnnotationView:(SGAnnotationView*)view
-{
-    [view inspectView:NO];
-    return YES;
+    ((SGGlassAnnotationView*)annotationView).closeButton.hidden = NO;
+    return annotationView;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
