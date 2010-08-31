@@ -31,8 +31,11 @@ SGiPhoneSDK
     SGClient
     The static libraries and header files gnereated from http://github.com/simplegeo/SGClient
 
+    SGAREnvironment
+    The static libraries and header files gnereated from http://github.com/simplegeo/SGAREnvironment
+
 Classes
-    SGLayerUpdaterAppDelegate.h
+    SGLayerUpdaterAppDelegate
     Defines the application delegate that initializes the SGLocationService.
 
     SGMainViewController
@@ -41,6 +44,10 @@ Classes
     SGCreateRecordViewController
     A table view controller that allows a user to create a record that will be added to 
     a layer in SimpleGeo.
+    
+    SGSimpleAnnotationView
+    A subclass of SGGlassAnnotation that closes the annotation view properly
+    whenever the close button is touched.
 
 ================================================================================
 CHANGES FROM PREVIOUS VERSIONS:
